@@ -13,8 +13,8 @@
 
 /*===== Wifi Setting =====*/
 
-const char* ssid = "ACI-IIoT-2.4G";
-const char* password = "qwer1234";
+const char* ssid = "SSID";
+const char* password = "Password";
 WiFiClient client;
 
 /*===== Server Setting =====*/
