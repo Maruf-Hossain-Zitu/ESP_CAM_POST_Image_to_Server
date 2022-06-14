@@ -1,0 +1,58 @@
+----------------------------------------------------
+Controller
+----------------------------------------------------
+
+[HttpGet]
+public ActionResult UploadFile()
+{
+	return View();
+}
+
+
+
+[HttpPost]
+public ActionResult UploadFile(HttpPostedFileBase file)
+{
+	try
+	{
+		if (file.ContentLength > 0)
+		{
+			string _FileName = System.DateTime.Now.ToString("yyyyy_MM_dd_hh_mm_ss") + "_" + Path.GetFileName(file.FileName);
+			string _path = Path.Combine(Server.MapPath("~/UploadedFiles"), _FileName);
+			file.SaveAs(_path);
+		}
+		ViewBag.Message = "File Uploaded Successfully!!";
+		return View();
+	}
+	catch
+	{
+		ViewBag.Message = "File upload failed!!";
+		return View();
+	}
+}
+
+
+
+
+
+----------------------------------------------------
+View
+----------------------------------------------------
+@{
+    ViewBag.Title = "UploadFile";
+    Layout = "";
+}
+
+
+<h2>UploadFile</h2>
+@using (Html.BeginForm("UploadFile", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div>
+        @Html.TextBox("file", "", new { type = "file" }) <br />
+        <input type="submit" value="Upload" />
+        @ViewBag.Message
+    </div>
+}
+
+
+
