@@ -1,8 +1,3 @@
-/*
-https://RandomNerdTutorials.com/esp32-cam-post-image-photo-server/
-*/
-
-
 /*===== Including Library =====*/
 
 #include <Arduino.h>
@@ -17,8 +12,8 @@ int timerInterval = 10 * 1000;
 unsigned long previousMillis = 0;
 
 /*===== Network Setting =====*/
-const char* ssid = "ACI-IIoT-2.4G";
-const char* password = "qwer1234";
+const char* ssid = "SSID";
+const char* password = "Password";
 
 /*===== Server Setting =====*/
 //http://192.186.86.5:8787/Home/UploadFile
